@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { useMemo } from "react";
+import { counterHoc } from "./HOC/Hoc";
 
-function App() {
+function App({ count, increment, decrement }) {
+  const Factorial = useMemo(() => console.log("hiiii"), []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1> welcome to world</h1>
+      <button onClick={increment}> Increment</button>
+      {count}
+      <button onClick={decrement}>Decrement</button>
+      {Factorial}
     </div>
   );
 }
 
-export default App;
+export default counterHoc(App);
